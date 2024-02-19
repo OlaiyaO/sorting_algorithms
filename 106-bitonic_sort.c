@@ -24,8 +24,8 @@ void bitonic_merge(int *array, int start, int count, int dir)
 {
 	if (count > 1)
 	{
-		int k = count / 2;
-		for (int i = start; i < start + k; i++)
+		int i, k = count / 2;
+		for (i = start; i < start + k; i++)
 		{
 			if ((array[i] > array[i + k]) == dir)
 				swap(&array[i], &array[i + k]);
@@ -44,9 +44,10 @@ void bitonic_merge(int *array, int start, int count, int dir)
  */
 void bitonic_sort_recursive(int *array, int start, int count, int dir)
 {
+	int k;
 	if (count > 1)
 	{
-		int k = count / 2;
+		k = count / 2;
 		bitonic_sort_recursive(array, start, k, 1);
 		bitonic_sort_recursive(array, start + k, k, 0);
 		bitonic_merge(array, start, count, dir);
