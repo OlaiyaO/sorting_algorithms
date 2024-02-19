@@ -22,12 +22,14 @@ void quick_sort(int *array, size_t size)
  * @array: The array to sort
  * @lo: The low index of the partition
  * @hi: The high index of the partition
+ * @size: Number of elements in the array
  */
 void _quick_sort(int *array, int lo, int hi, size_t size)
 {
 	if (lo < hi)
 	{
 		int p = partition(array, lo, hi, size);
+
 		_quick_sort(array, lo, p - 1, size);
 		_quick_sort(array, p + 1, hi, size);
 	}
@@ -38,6 +40,7 @@ void _quick_sort(int *array, int lo, int hi, size_t size)
  * @array: The array to partition
  * @lo: The low index of the partition
  * @hi: The high index of the partition
+ * @size: Number of elements in the array
  * Return: The pivot index
  */
 
